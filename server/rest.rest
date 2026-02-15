@@ -12,7 +12,7 @@ Content-Type: application/json
 ###
 //USER LOGIN API
 
-POST http://localhost:3000/api/auth/login
+POST https://eventmanagement-ze4t.onrender.com/api/auth/login
 Content-Type: application/json
 
 {
@@ -23,17 +23,17 @@ Content-Type: application/json
 ###
 //GET ALL EVENTS
 
-GET http://localhost:3000/api/events/
+GET https://eventmanagement-ze4t.onrender.com/api/events/
 
 ###
 //GET EVENT BY ID API
 
-GET http://localhost:3000/api/events/698f6b27c35aa91743895b52
+GET https://eventmanagement-ze4t.onrender.com/api/events/698f6b27c35aa91743895b52
 
 ###
 //GET EVENTS BY FILTERS API
 
-GET http://localhost:3000/api/events?category=Sports
+GET https://eventmanagement-ze4t.onrender.com/api/events?category=Sports
 
 ###
 //CREATE EVENT API

@@ -11,8 +11,6 @@ export const EventProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const BASE_URL = import.meta.env.BACKEND_API_URL || "http://localhost:3000";
-
   // 🔹 Fetch all events
   const fetchEvents = async () => {
     setLoading(true);
