@@ -1,0 +1,110 @@
+//USER REGISTER API
+
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+    "name":"Sunny",
+    "email":"sunny@gmail.com",
+    "password":"madhu1122",
+    "role":"organizer"
+}
+###
+//USER LOGIN API
+
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "sunny@gmail.com",
+  "password": "madhu1122"
+}
+
+###
+//GET ALL EVENTS
+
+GET http://localhost:3000/api/events/
+
+###
+//GET EVENT BY ID API
+
+GET http://localhost:3000/api/events/698f6b27c35aa91743895b52
+
+###
+//GET EVENTS BY FILTERS API
+
+GET http://localhost:3000/api/events?category=Sports
+
+###
+//CREATE EVENT API
+
+POST http://localhost:3000/api/events/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGY2YWQ4YzM1YWE5MTc0Mzg5NWI0OSIsImlhdCI6MTc3MTAwNjY4MCwiZXhwIjoxNzcxNjExNDgwfQ.K93Onj6KHFuUX2Rb8P7rdyBFKBlW7CG0RrpJfjYcgx4
+Content-Type: application/json
+
+{
+    "name": "City Marathon 2026",
+    "description": "Annual 10K and 21K marathon promoting health and fitness.",
+    "organizer": "FitLife Organization",
+    "category": "Sports",
+    "location": "Delhi",
+    "date": "2026-07-12T05:30:00.000Z",
+    "capacity": 1000,
+    "image": {
+      "url": "https://images.unsplash.com/photo-1558611848-73f7eb4001a1",
+      "public_id": "city_marathon"
+    }
+}
+
+###
+//UPDATE EVENT DETAILS API
+
+PUT http://localhost:3000/api/events/698f6b27c35aa91743895b52
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGY2YWQ4YzM1YWE5MTc0Mzg5NWI0OSIsImlhdCI6MTc3MTAwNjY4MCwiZXhwIjoxNzcxNjExNDgwfQ.K93Onj6KHFuUX2Rb8P7rdyBFKBlW7CG0RrpJfjYcgx4
+Content-Type: application/json
+
+{
+    "name": "City Marathon 2025",
+    "description": "Annual 10K and 21K marathon promoting health and fitness.",
+    "organizer": "FitLife Organization",
+    "category": "Sports",
+    "location": "Delhi",
+    "date": "2026-07-12T05:30:00.000Z",
+    "capacity": 1000,
+    "image": {
+      "url": "https://images.unsplash.com/photo-1558611848-73f7eb4001a1",
+      "public_id": "city_marathon"
+    }
+}
+###
+//DELETE EVENT
+
+DELETE http://localhost:3000/api/events/698f6b27c35aa91743895b52
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGY2NTQ2Y2UyZWFlOTBhYjgyZDcxOCIsImlhdCI6MTc3MTAwNzI1OCwiZXhwIjoxNzcxNjEyMDU4fQ.lZvgQsl0gTVIzfzcrtKSxTTHLuYYHukHyF85lH136_c
+
+###
+//REGISTER FOR AN EVENT API
+
+POST http://localhost:3000/api/registrations/698f6a7ec35aa91743895b43
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGY2NTQ2Y2UyZWFlOTBhYjgyZDcxOCIsImlhdCI6MTc3MTAwNzI1OCwiZXhwIjoxNzcxNjEyMDU4fQ.lZvgQsl0gTVIzfzcrtKSxTTHLuYYHukHyF85lH136_c
+
+###
+
+GET http://localhost:3000/api/registrations/my-events
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTAyZmFkMjgyYmMzNGNhNDMyYTBkZCIsImlhdCI6MTc3MTEyODE1OCwiZXhwIjoxNzcxNzMyOTU4fQ.veuq9XBzkTMlArynp5b_HoSyDZ6CRzy81d7jP7hQsU0
+
+###
+
+DELETE http://localhost:3000/api/registrations/698f6a7ec35aa91743895b43
+###
+
+GET http://localhost:3000/api/registrations/check/698f6a7ec35aa91743895b43
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTAyZmFkMjgyYmMzNGNhNDMyYTBkZCIsImlhdCI6MTc3MTEzNjg2NCwiZXhwIjoxNzcxNzQxNjY0fQ.ru1rOIEF2JZ_eNkn1C2zSmIUJ1466liv7BW4PSHnouY
+
+###
+
+GET http://localhost:3000/api/auth/get-profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTAyZmFkMjgyYmMzNGNhNDMyYTBkZCIsImlhdCI6MTc3MTEzNjg2NCwiZXhwIjoxNzcxNzQxNjY0fQ.ru1rOIEF2JZ_eNkn1C2zSmIUJ1466liv7BW4PSHnouY
+
+
+
