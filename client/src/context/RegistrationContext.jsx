@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import API from "@/services/api";
 
-const RegistrationContext = createContext();
+export const RegistrationContext = createContext();
 
 export const RegistrationProvider = ({ children }) => {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -101,5 +101,3 @@ export const RegistrationProvider = ({ children }) => {
     </RegistrationContext.Provider>
   );
 };
-
-export const useRegistration = () => useContext(RegistrationContext);

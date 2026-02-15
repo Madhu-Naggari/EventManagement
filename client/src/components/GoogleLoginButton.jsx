@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import API from "@/services/api"; // your axios instance with interceptor
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/useAuth";
 
 const GoogleLoginButton = () => {
   const { login } = useAuth();

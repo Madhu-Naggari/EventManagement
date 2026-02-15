@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEvents } from "@/context/EventContext";
+import { useEvents } from "@/context/useEvents";
 import { useEffect, useState } from "react";
-import { useRegistration } from "@/context/RegistrationContext";
+import { useRegistration } from "@/context/useRegistration";
 import API from "@/services/api";
 import Cookies from "js-cookie";
 import Footer from "@/components/footer";

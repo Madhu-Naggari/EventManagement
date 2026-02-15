@@ -10,8 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 import GoogleLoginButton from "./GoogleLoginButton";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
 import { SelectDemo } from "./SelectDemo";
+import API from "@/services/api";
 
 export function SignUpForm({ className, ...props }) {
   const navigate = useNavigate();
@@ -39,10 +40,7 @@ export function SignUpForm({ className, ...props }) {
     try {
       setLoading(true);
 
-      const BASE_URL =
-        import.meta.env.VITE_BACKEND_API_URL || "http://localhost:3000";
-
-      const { data } = await axios.post(`${BASE_URL}/api/auth/register`, {
+      const { data } = await API.post(`/api/auth/register`, {
         name: formData.name,
         email: formData.email,
         password: formData.password,

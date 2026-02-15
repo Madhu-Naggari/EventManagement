@@ -1,6 +1,6 @@
 import React from "react";
-import { useEvents } from "@/context/EventContext";
-import { useRegistration } from "@/context/RegistrationContext";
+import { useEvents } from "@/context/useEvents";
+import { useRegistration } from "@/context/useRegistration";
 import { EventCard } from "@/components/EventCard";
 import { NavbarDemo } from "@/components/Navbar";
 import { LoaderOne } from "@/components/ui/loader";

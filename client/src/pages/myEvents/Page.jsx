@@ -1,6 +1,6 @@
 import { CreateEventDialog } from "@/components/createDialog";
-import { useEvents } from "@/context/EventContext";
-import { useRegistration } from "@/context/RegistrationContext";
+import { useEvents } from "@/context/useEvents";
+import { useRegistration } from "@/context/useRegistration";
 import React from "react";
 import Footer from "@/components/footer";
 import { useEffect } from "react";

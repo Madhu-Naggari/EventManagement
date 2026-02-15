@@ -36,7 +36,7 @@ import {
 
 import API from "@/services/api";
 import { toast } from "sonner";
-import { useEvents } from "@/context/EventContext";
+import { useEvents } from "@/context/useEvents";
 
 export function CreateEventDialog() {
   const [open, setOpen] = useState(false);

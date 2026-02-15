@@ -2,7 +2,8 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const API = axios.create({
-  baseURL: import.meta.env.BACKEND_API_URL || "http://localhost:3000",
+  baseURL:
+    import.meta.env.VITE_API_URL || "https://eventmanagement-ze4t.onrender.com",
 });
 
 API.interceptors.request.use((config) => {

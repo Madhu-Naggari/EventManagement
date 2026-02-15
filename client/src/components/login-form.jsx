@@ -7,9 +7,9 @@ import GoogleLoginButton from "./GoogleLoginButton";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { toast } from "sonner";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/useAuth";
+import API from "@/services/api";
 
 export function LoginForm({ className, ...props }) {
   const navigate = useNavigate();
@@ -35,10 +35,7 @@ export function LoginForm({ className, ...props }) {
     try {
       setLoading(true);
 
-      const BASE_URL =
-        import.meta.env.VITE_BACKEND_API_URL || "http://localhost:3000";
-
-      const { data } = await axios.post(`${BASE_URL}/api/auth/login`, {
+      const { data } = await API.post(`/api/auth/login`, {
         email: formData.email,
         password: formData.password,
       });

@@ -1,8 +1,8 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import { toast } from "sonner";
 import API from "@/services/api";
 
-const EventContext = createContext();
+export const EventContext = createContext();
 
 export const EventProvider = ({ children }) => {
   const [events, setEvents] = useState([]); // all events
@@ -148,6 +148,3 @@ export const EventProvider = ({ children }) => {
     </EventContext.Provider>
   );
 };
-
-// Hook to use the Event context
-export const useEvents = () => useContext(EventContext);
