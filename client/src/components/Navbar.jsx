@@ -56,7 +56,7 @@ export function NavbarDemo() {
                 <Link to="/login">Login</Link>
               </NavbarButton>
               <NavbarButton variant="primary">
-                <Link to="register">Register</Link>
+                <Link to="/register">Register</Link>
               </NavbarButton>
             </>
           ) : (
@@ -98,7 +98,7 @@ export function NavbarDemo() {
                   <Link to="/login">Login</Link>
                 </NavbarButton>
                 <NavbarButton variant="primary">
-                  <Link to="register">Register</Link>
+                  <Link to="/register">Register</Link>
                 </NavbarButton>
               </>
             ) : (
