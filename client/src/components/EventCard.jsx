@@ -13,7 +13,7 @@ export function EventCard(props) {
   const { name, description, category, image } = eventDetails;
 
   return (
-    <Card className="mx-auto w-[290px] h-[320px] flex flex-col overflow-hidden pt-0">
+    <Card className="mx-auto w-[300px] h-[320px] flex flex-col overflow-hidden pt-0">
       {/* Image */}
       <div className="aspect-video w-full overflow-hidden">
         <img

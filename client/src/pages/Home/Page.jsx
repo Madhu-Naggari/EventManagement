@@ -9,13 +9,13 @@ const Home = () => {
     <div>
       <NavbarDemo />
       <div>
-        <main className="flex-1 relative -top-5">
-          <div className="flex min-h-screen items-center justify-center bg-background dark:bg-background">
+        <main className="flex-1 relative -top-8">
+          <div className="flex min-h-dvh items-center justify-center bg-background dark:bg-background">
             <div className="theme-zinc w-full" style={{ "--radius": "0.5rem" }}>
               <div className="flex min-h-full w-full items-center justify-center">
                 <div className="relative w-full">
                   {/* Hero Content */}
-                  <div className="relative flex min-h-screen w-full flex-col justify-end p-4 md:p-14">
+                  <div className="relative flex min-h-dvh w-full flex-col justify-end p-4 md:p-14">
                     <div
                       className="pointer-events-none absolute inset-4 overflow-hidden md:inset-10"
                       style={{ opacity: 1 }}
@@ -49,11 +49,11 @@ const Home = () => {
                             <div className="absolute inset-y-0 left-1 z-40 my-auto flex size-8 flex-col items-center justify-center gap-px rounded-[5px] bg-yellow-500 transition-all duration-400 ease-out group-hover/button:left-[calc(100%-2.3rem)] group-hover/button:rotate-180 group-hover/button:transform">
                               <div className="flex flex-col gap-px">
                                 <div className="flex gap-px">
-                                  <span className="inline-block size-[3px] shrink-0 rounded-full bg-white/25"></span>
-                                  <span className="inline-block size-[3px] shrink-0 rounded-full bg-white/25"></span>
-                                  <span className="inline-block size-[3px] shrink-0 rounded-full animate-pulse bg-white duration-200 ease-linear"></span>
-                                  <span className="inline-block size-[3px] shrink-0 rounded-full bg-white/25"></span>
-                                  <span className="inline-block size-[3px] shrink-0 rounded-full bg-white/25"></span>
+                                  <span className="inline-block size-0.75 shrink-0 rounded-full bg-white/25"></span>
+                                  <span className="inline-block size-0.75 shrink-0 rounded-full bg-white/25"></span>
+                                  <span className="inline-block size-0.75 shrink-0 rounded-full animate-pulse bg-white duration-200 ease-linear"></span>
+                                  <span className="inline-block size-0.75 shrink-0 rounded-full bg-white/25"></span>
+                                  <span className="inline-block size-0.75 shrink-0 rounded-full bg-white/25"></span>
                                 </div>
                               </div>
                             </div>

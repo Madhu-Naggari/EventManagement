@@ -52,7 +52,7 @@ const Contact = () => {
     <div>
       <NavbarDemo />
 
-      <div className="max-w-200 mx-auto px-6 py-12 h-screen">
+      <div className="max-w-200 mx-auto px-6 py-12 h-dvh">
         <h1 className="text-4xl font-bold mb-8 text-center">Contact Us</h1>
 
         <form

@@ -48,8 +48,6 @@ export const RegistrationProvider = ({ children }) => {
       await API.post(`/api/registrations/${eventId}`);
 
       toast.success("Registered successfully!");
-
-      // 🔥 Always reload from backend (single source of truth)
       await loadMyEvents();
     } catch (err) {
       const message = err.response?.data?.message || "Failed to register";
@@ -71,7 +69,6 @@ export const RegistrationProvider = ({ children }) => {
 
       toast.success("Registration cancelled");
 
-      // 🔥 Reload instead of manual filter
       await loadMyEvents();
     } catch (err) {
       const message =
