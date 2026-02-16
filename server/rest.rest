@@ -23,6 +23,18 @@ Content-Type: application/json
 ###
 //GET ALL EVENTS
 
+POST https://eventmanagement-ze4t.onrender.com/api/auth/contact
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTAyZmFkMjgyYmMzNGNhNDMyYTBkZCIsImlhdCI6MTc3MTIxOTE1NiwiZXhwIjoxNzcxODIzOTU2fQ.cZEzmz0Rx2EqAdwsr5ZGcVLZeuNfbUI7zXkWK4RXioA
+Content-Type: application/json
+
+{
+  "name":"madhu",
+  "email":"madhu@gmail.com",
+  "subject":"dfffd",
+  "message":"dfffhbabuw"
+}
+###
+
 GET https://eventmanagement-ze4t.onrender.com/api/events/
 
 ###
@@ -38,23 +50,23 @@ GET https://eventmanagement-ze4t.onrender.com/api/events?category=Sports
 ###
 //CREATE EVENT API
 
-POST http://localhost:3000/api/events/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGY2YWQ4YzM1YWE5MTc0Mzg5NWI0OSIsImlhdCI6MTc3MTAwNjY4MCwiZXhwIjoxNzcxNjExNDgwfQ.K93Onj6KHFuUX2Rb8P7rdyBFKBlW7CG0RrpJfjYcgx4
+POST https://eventmanagement-ze4t.onrender.com/api/events/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTAyZmFkMjgyYmMzNGNhNDMyYTBkZCIsImlhdCI6MTc3MTIxOTE1NiwiZXhwIjoxNzcxODIzOTU2fQ.cZEzmz0Rx2EqAdwsr5ZGcVLZeuNfbUI7zXkWK4RXioA
 Content-Type: application/json
 
-{
-    "name": "City Marathon 2026",
-    "description": "Annual 10K and 21K marathon promoting health and fitness.",
-    "organizer": "FitLife Organization",
-    "category": "Sports",
-    "location": "Delhi",
-    "date": "2026-07-12T05:30:00.000Z",
-    "capacity": 1000,
+  {
+    "name": "Summer Music Fiesta",
+    "description": "Summer Music Fiesta is an outdoor celebration of sound and rhythm.\n\nThe festival features top indie bands and international DJs.\n\nMultiple stages will host different music genres.\n\nFood trucks and craft beverage stalls will enhance the experience.\n\nVIP zones provide premium viewing areas.\n\nInteractive light shows will transform the venue at night.\n\nArt installations will add creative visual flair.\n\nFans can meet artists during exclusive backstage sessions.\n\nThe energy builds throughout the day until the headline act closes the night.\n\nExpect unforgettable vibes and nonstop music.",
+    "organizer": "SoundWave Productions",
+    "category": "Music",
+    "location": "Goa",
+    "date": "2026-03-14T16:00:00.000Z",
+    "capacity": 2000,
     "image": {
-      "url": "https://images.unsplash.com/photo-1558611848-73f7eb4001a1",
-      "public_id": "city_marathon"
+      "url": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30",
+      "public_id": "summer_music_fiesta"
     }
-}
+  }
 
 ###
 //UPDATE EVENT DETAILS API
