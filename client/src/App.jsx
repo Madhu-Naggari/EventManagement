@@ -15,12 +15,14 @@ import Profile from "./pages/profile/Page";
 import Contact from "./pages/contact/Page";
 import Home from "./pages/Home/Page";
 import NotFound from "./pages/notFound/Page";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
       <Toaster position="bottom-right" richColors />
       <Router>
+        <ScrollToTop />
         <AuthProvider>
           <EventProvider>
             <RegistrationProvider>
