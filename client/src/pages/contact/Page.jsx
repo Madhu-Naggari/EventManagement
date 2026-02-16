@@ -31,7 +31,7 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      await API.post("/api/contact", formData);
+      await API.post("/api/auth/contact", formData);
 
       toast.success("Message sent successfully! 📩");
 
