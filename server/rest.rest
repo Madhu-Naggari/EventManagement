@@ -23,7 +23,7 @@ Content-Type: application/json
 ###
 //GET ALL EVENTS
 
-POST https://eventmanagement-ze4t.onrender.com/api/auth/contact
+POST http://localhost:3000/api/auth/contact
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OTAyZmFkMjgyYmMzNGNhNDMyYTBkZCIsImlhdCI6MTc3MTIxOTE1NiwiZXhwIjoxNzcxODIzOTU2fQ.cZEzmz0Rx2EqAdwsr5ZGcVLZeuNfbUI7zXkWK4RXioA
 Content-Type: application/json
 
