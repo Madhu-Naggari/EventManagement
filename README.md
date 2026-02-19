@@ -12,6 +12,10 @@ A full-stack Event Management application that allows users to create, manage, a
 
 ---
 
+## 🔗 Live Link
+
+live website deployed on vercel - https://event-management-one-topaz.vercel.app
+
 ## 🚀 Features
 
 - User Authentication (Register / Login)
