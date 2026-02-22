@@ -78,6 +78,7 @@ const EventDetails = () => {
       setIsRegistered(true);
     } catch (err) {
       setIsRegistering(false);
+      setIsRegistered(false);
       console.error("Registration failed:", err);
     }
   };
