@@ -24,8 +24,6 @@ const MyEvents = () => {
   useEffect(() => {
     myOwnEvents();
     loadMyEvents();
-    console.log(myCreatedEvents);
-    console.log(myEvents);
   }, []);
   const selectFunction = (event) => {
     selectEvent(event);
