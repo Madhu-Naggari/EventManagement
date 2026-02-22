@@ -13,56 +13,63 @@ exports.registerEvent = async (req, res, next) => {
     const userId = req.user._id;
 
     if (!mongoose.Types.ObjectId.isValid(eventId)) {
-      return res.status(400).json({ message: "Invalid event ID" });
+      throw new Error("Invalid event ID");
     }
 
-    const event = await Event.findById(eventId).session(session);
-    if (event.createdBy.toString() === userId.toString()) {
-      return res
-        .status(400)
-        .json({ message: "Organizer cannot register for their own event" });
-    }
-    if (!event) {
-      return res.status(404).json({ message: "Event not found" });
+    // Check if event exists first (no increment yet)
+    const eventExists = await Event.findById(eventId).session(session);
+    if (!eventExists) {
+      throw new Error("Event not found");
     }
 
+    // Organizer cannot register
+    if (eventExists.createdBy.toString() === userId.toString()) {
+      throw new Error("Organizer cannot register for their own event");
+    }
+
+    // Check if already registered
     const existing = await Registration.findOne({ userId, eventId }).session(
       session,
     );
 
-    // If already active → stop
     if (existing && existing.status === "active") {
-      return res.status(400).json({ message: "Already registered" });
+      throw new Error("Already registered");
     }
 
-    // Check capacity BEFORE activating/creating
-    if (event.registeredCount >= event.capacity) {
-      return res.status(400).json({ message: "Event is full" });
+    // 🔥 Atomic capacity check + increment
+    const updatedEvent = await Event.findOneAndUpdate(
+      {
+        _id: eventId,
+        $expr: { $lt: ["$registeredCount", "$capacity"] },
+      },
+      {
+        $inc: { registeredCount: 1 },
+      },
+      { new: true, session },
+    );
+
+    if (!updatedEvent) {
+      throw new Error("Event is full");
     }
 
+    // Create or reactivate registration
     if (existing) {
-      // Reactivate cancelled registration
       existing.status = "active";
       await existing.save({ session });
     } else {
-      // Create new registration
       await Registration.create([{ userId, eventId, status: "active" }], {
         session,
       });
     }
 
-    // Increment count only once
-    event.registeredCount += 1;
-    await event.save({ session });
-
     await session.commitTransaction();
+    session.endSession();
 
     res.json({ message: "Registered successfully" });
   } catch (error) {
     await session.abortTransaction();
-    next(error);
-  } finally {
     session.endSession();
+    res.status(400).json({ message: error.message });
   }
 };
 

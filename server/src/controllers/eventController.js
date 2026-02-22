@@ -1,5 +1,4 @@
 const Event = require("../models/Event");
-const Registration = require("../models/Registration");
 const mongoose = require("mongoose");
 
 // @desc Get all events with filtering
@@ -111,32 +110,6 @@ exports.deleteEvent = async (req, res, next) => {
     await event.deleteOne();
 
     res.json({ message: "Event deleted" });
-  } catch (error) {
-    next(error);
-  }
-};
-
-exports.registerEvent = async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(404).json({ message: "Event not found" });
-    }
-    const event = await Event.findById(id);
-    if (!event) return res.status(404).json({ message: "Event not found" });
-
-    if (event.registeredCount >= event.capacity)
-      return res.status(400).json({ message: "Event full" });
-
-    await Registration.create({
-      userId: req.user._id,
-      eventId: event._id,
-    });
-
-    event.registeredCount += 1;
-    await event.save();
-
-    res.json({ message: "Registered successfully" });
   } catch (error) {
     next(error);
   }
