@@ -48,6 +48,7 @@ exports.registerEvent = async (req, res, next) => {
     );
 
     if (!updatedEvent) {
+      res.status(400);
       throw new Error("Event is full");
     }
 
