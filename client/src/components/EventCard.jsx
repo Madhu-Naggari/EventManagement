@@ -10,6 +10,8 @@ import {
 
 export function EventCard(props) {
   const { eventDetails, eventId, eventFunction } = props;
+
+  if (!eventDetails) return null;
   const { name, description, category, image } = eventDetails;
 
   return (
@@ -27,7 +29,9 @@ export function EventCard(props) {
       <div className="flex flex-col flex-1">
         <CardHeader className="flex-1">
           <div className="flex justify-between items-center gap-2">
-            <CardTitle className="text-base line-clamp-1">{name}</CardTitle>
+            <CardTitle className="text-base line-clamp-1">
+              {name || ""}
+            </CardTitle>
             <Badge variant="secondary">{category}</Badge>
           </div>
 
