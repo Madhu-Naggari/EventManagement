@@ -5,7 +5,6 @@ const {
   createEvent,
   updateEvent,
   deleteEvent,
-  registerEvent,
   getEvents,
   getEventById,
   getMyEvents,
@@ -22,6 +21,5 @@ router.get("/:id", getEventById);
 router.post("/", protect, createEvent);
 router.put("/:id", protect, updateEvent);
 router.delete("/:id", protect, deleteEvent);
-router.post("/:id/register", protect, registerEvent);
 
 module.exports = router;

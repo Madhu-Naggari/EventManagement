@@ -36,7 +36,6 @@ exports.registerEvent = async (req, res, next) => {
       throw new Error("Already registered");
     }
 
-    // 🔥 Atomic capacity check + increment
     const updatedEvent = await Event.findOneAndUpdate(
       {
         _id: eventId,
@@ -69,7 +68,7 @@ exports.registerEvent = async (req, res, next) => {
   } catch (error) {
     await session.abortTransaction();
     session.endSession();
-    res.status(400).json({ message: error.message });
+    next(error);
   }
 };
 
