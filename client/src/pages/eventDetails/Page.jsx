@@ -55,7 +55,6 @@ const EventDetails = () => {
 
   useEffect(() => {
     if (!eventId) return;
-
     async function loadData() {
       try {
         await fetchEventById(eventId);
@@ -66,20 +65,27 @@ const EventDetails = () => {
         console.error("Error loading event:", err);
       }
     }
-
     loadData();
   }, [eventId]);
+
+  async function checkRegistration() {
+    try {
+      const { data } = await API.get(`/api/registrations/check/${eventId}`);
+      setIsRegistered(data.isRegistered);
+    } catch (err) {
+      console.log("error while checking registration", err);
+    }
+  }
 
   const handleRegister = async () => {
     try {
       setIsRegistering(true);
       await registerEvent(eventId);
-      setIsRegistering(false);
-      setIsRegistered(true);
     } catch (err) {
-      setIsRegistering(false);
-      setIsRegistered(false);
       console.error("Registration failed:", err);
+    } finally {
+      setIsRegistering(false);
+      checkRegistration();
     }
   };
 
@@ -87,11 +93,11 @@ const EventDetails = () => {
     try {
       setIsCancel(true);
       await cancelRegistration(eventId);
-      setIsCancel(false);
-      setIsRegistered(false);
     } catch (err) {
-      setIsCancel(false);
       console.error("Cancel failed:", err);
+    } finally {
+      setIsCancel(false);
+      checkRegistration();
     }
   };
 
